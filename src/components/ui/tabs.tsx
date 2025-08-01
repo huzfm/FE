@@ -12,7 +12,7 @@ const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
 );
 Tabs.displayName = "Tabs";
 
-interface TabsListProps extends React.ComponentProps<"div"> {}
+type TabsListProps = React.ComponentProps<"div">;
 const TabsList = React.forwardRef<HTMLDivElement, TabsListProps>(
   ({ className, ...props }, ref) => (
     <div
