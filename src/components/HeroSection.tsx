@@ -27,7 +27,7 @@ export default function HeroSection() {
               backgroundSize: "200% auto",
               animation: "shine 4s linear infinite",
               backgroundImage:
-                "linear-gradient(90deg, #fff 20%, #000 50%, 	#fff 100%)",
+                "linear-gradient(90deg, #fff 20%, #000 50%, #fff 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
             }}
@@ -36,12 +36,22 @@ export default function HeroSection() {
           </span>
 
           <br />
-          <span className="text-black">one command</span>
+
+          <span className="text-cyan-500 font-bold text-4xl sm:text-5xl md:text-5xl lg:text-6xl tracking-wide animate-pulse drop-shadow-[0_0_5px_rgba(255,255,255,0.2)]">
+            one command
+          </span>
         </h1>
-        <p className="border-2 border-black rounded-2xl text-xl text-white font-mono font-medium mb-12 max-w-3xl mx-auto leading-relaxed space-y-10 px-6 py-4">
-          With Just one command build your backend infrastructure. Add
-          authentication, payment-services, APIs, and more instantly.
-        </p>
+        <div className="backdrop-blur-xl bg-black/20 shadow-2xl border border-white/10 rounded-2xl text-xl text-white font-mono font-medium mb-12 max-w-3xl mx-auto leading-relaxed px-6 py-4">
+          <p>
+            With just one command, build your backend infrastructure. Add
+            <span className="text-amber-400 font-semibold">
+              {" "}
+              authentication, payment services, API
+            </span>
+            , and more instantly.
+          </p>
+        </div>
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
           <Button
             size="lg"

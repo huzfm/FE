@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200 py-16 px-4 from-stone-950 via-rose-900 to-stone-950">
+    <footer className="border-t border-gray-200 py-16 px-4 bg-gradient-to-r from-stone-950 via-rose-900 to-stone-950">
       <div className="container mx-auto">
         <div className="grid md:grid-cols-4 gap-8">
           <div>
