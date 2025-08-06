@@ -15,7 +15,7 @@ export default function Header() {
             <Zap className="w-4 h-4 text-white" />
           </div>
           <span className="font-bold text-xl text-slate-300 font-mono">
-            BackendUI
+            Devark
           </span>
         </div>
         {/* Desktop Nav */}

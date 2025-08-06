@@ -12,7 +12,6 @@ export default function HomePage() {
     <>
       <Header />
       <HeroSection />
-      <FeaturesSection />
       <ComponentsSection />
       <CTASection />
       <Footer />
