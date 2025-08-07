@@ -6,6 +6,12 @@ export const components = [
     command: " devark add oauth",
   },
   {
+    id: 8,
+    title: "Email based OTP",
+    description: "Email Otps with Resend",
+    command: "devark add otp",
+  },
+  {
     id: 2,
     title: "JWT Manager",
     description: "Token generation, validation, and refresh logic",
@@ -24,11 +30,5 @@ export const components = [
     title: "File Upload",
     description: "S3, Cloudinary, and local file upload handlers",
     command: "devark add upload",
-  },
-  {
-    id: 8,
-    title: "Email Service",
-    description: "Transactional emails with templates",
-    command: "devark add email",
   },
 ];

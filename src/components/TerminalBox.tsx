@@ -2,45 +2,75 @@
 
 "use client";
 
+import { useState } from "react";
+import { Copy, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Copy } from "lucide-react";
+
+const commandMap = {
+  pnpm: "pnpm install devark",
+  npm: "npm install devark",
+  yarn: "yarn add devark",
+};
 
 export default function TerminalBox() {
+  const [tool, setTool] = useState<"pnpm" | "npm" | "yarn">("pnpm");
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(commandMap[tool]);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   return (
-    <div className="bg-[#1e1e1e] text-white font-mono rounded-lg p-6 max-w-3xl mx-auto border border-gray-700 shadow-lg">
-      <div className="flex items-center justify-between mb-4">
-        <span className="text-sm text-gray-400">~/backend-ui</span>
-        <Button variant="ghost" size="sm" className="hover:bg-gray-700">
-          <Copy className="w-4 h-4 text-gray-300" />
-        </Button>
+    <>
+      <h2 className="font-mono text-3xl p-10 text-black font-semibold">
+        Installation
+      </h2>
+      <div className="bg-[#1e1e1e] text-white font-mono rounded-lg p-6 max-w-3xl mx-auto border border-gray-700 shadow-lg">
+        {/* Header */}
+        <div className="flex items-center justify-between mb-4">
+          <span className="text-sm text-gray-400">~/devark</span>
+          <div className="flex items-center gap-2">
+            <select
+              value={tool}
+              onChange={(e) =>
+                setTool(e.target.value as "pnpm" | "npm" | "yarn")
+              }
+              className="bg-gray-800 text-white text-sm rounded-md px-2 py-1 border border-gray-600"
+            >
+              <option value="pnpm">pnpm</option>
+              <option value="npm">npm</option>
+              <option value="yarn">yarn</option>
+            </select>
+
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={handleCopy}
+              className="hover:bg-gray-700"
+              aria-label="Copy install command"
+            >
+              {copied ? (
+                <Check className="w-4 h-4 text-green-400" />
+              ) : (
+                <Copy className="w-4 h-4 text-gray-300" />
+              )}
+            </Button>
+          </div>
+        </div>
+
+        {/* Terminal Output */}
+        <div className="text-sm leading-relaxed">
+          <p className="text-green-400">
+            huzfm@devark <span className="text-white">~</span> $
+            <span className="ml-2 text-white">{commandMap[tool]}</span>
+          </p>
+          <p className="text-gray-400 mt-2">
+            ✔ Installing backend utilities...
+          </p>
+        </div>
       </div>
-
-      <div className="space-y-2 text-sm leading-relaxed">
-        <p className="text-green-400">
-          huzfm@backend-kit <span className="text-white">~</span> $
-          <span className="ml-2 text-white">pnpm add oauth</span>
-        </p>
-        <p className="text-gray-400">
-          ✔ Installed dependencies: express, passport, dotenv
-        </p>
-
-        <p className="text-green-400">
-          huzfm@backend-kit <span className="text-white">~</span> $
-          <span className="ml-2 text-white">pnpm add paymment</span>
-        </p>
-        <p className="text-gray-400">✔ Stripe setup for payment</p>
-
-        <p className="text-green-400">
-          huzfm@backend-kit <span className="text-white">~</span> $
-          <span className="ml-2 text-white">pnpm add otp-service</span>
-        </p>
-        <p className="text-gray-400">✔ OTP service setup with resend</p>
-
-        <p className="text-green-400">
-          huzfm@backend-kit <span className="text-white">~</span> $
-          <span className="animate-pulse ml-2">█</span>
-        </p>
-      </div>
-    </div>
+    </>
   );
 }

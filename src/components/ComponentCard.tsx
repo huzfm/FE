@@ -5,29 +5,22 @@ import { ClipboardCopy } from "lucide-react";
 type ComponentCardProps = {
   title: string;
   description: string;
-  command: string;
+  command: string; // this will be like `npx devark add oauth`
 };
 
-const commandMap = {
-  pnpm: (pkg: string) => `pnpm add ${pkg}`,
-  npm: (pkg: string) => `npm install ${pkg}`,
-  yarn: (pkg: string) => `yarn add ${pkg}`,
-};
-
-const comingSoonPackages = ["upload", "email", "redis", ""];
+const comingSoonPackages = ["upload", "email", "redis", "jwt"];
 
 export default function ComponentCard({
   title,
   description,
   command,
 }: ComponentCardProps) {
-  const [tool, setTool] = useState<"pnpm" | "npm" | "yarn">("pnpm");
   const [copied, setCopied] = useState(false);
   const [mounted, setMounted] = useState(false);
 
+  // Extract the package name from the command (e.g., "oauth" from "npx devark add oauth")
   const packageName = command.split(" ").pop() || "";
   const isComingSoon = comingSoonPackages.includes(packageName);
-  const installCommand = commandMap[tool](packageName);
 
   useEffect(() => {
     setMounted(true);
@@ -35,7 +28,7 @@ export default function ComponentCard({
 
   const handleCopy = async () => {
     if (isComingSoon) return;
-    await navigator.clipboard.writeText(installCommand);
+    await navigator.clipboard.writeText(command);
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
   };
@@ -48,22 +41,6 @@ export default function ComponentCard({
     >
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-xl font-semibold text-white font-mono">{title}</h3>
-        <select
-          value={tool}
-          onChange={(e) => setTool(e.target.value as "pnpm" | "npm" | "yarn")}
-          className="border border-gray-300 bg-white rounded-md text-sm px-2 py-1 text-black"
-          disabled={isComingSoon}
-        >
-          <option className="text-black" value="pnpm">
-            pnpm
-          </option>
-          <option className="text-black" value="npm">
-            npm
-          </option>
-          <option className="text-black" value="yarn">
-            yarn
-          </option>
-        </select>
       </div>
 
       <p className="mb-4 text-white">{description}</p>
@@ -81,7 +58,7 @@ export default function ComponentCard({
         {/* Terminal Body */}
         <div className="flex justify-between items-center px-4 py-3 bg-[#1e1e1e] rounded-md shadow-inner overflow-x-auto">
           <pre className="text-green-400 font-mono text-sm whitespace-pre-wrap pr-4">
-            {isComingSoon ? `devark add ${packageName}` : installCommand}
+            {isComingSoon ? `devark add ${packageName}` : command}
           </pre>
 
           <button
