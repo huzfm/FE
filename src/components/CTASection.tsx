@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Github } from "lucide-react";
+import Link from "next/link";
 
 export default function CTASection() {
   return (
@@ -19,14 +20,16 @@ export default function CTASection() {
             className="text-lg px-8 py-3 w-auto border-white text-white bg-transparent flex items-center gap-2"
           >
             <Github className="w-5 h-5" />
-            GitHub
+            <Link href="https://github.com/huzfm/Devark">GitHub</Link>
           </Button>
           <Button
             size="lg"
             variant="outline"
             className="text-lg px-8 py-3 bg-emerald-900 text-white"
           >
-            View Documentation
+            <Link href="https://github.com/huzfm/Devark/tree/master/documentation">
+              View Documentation
+            </Link>
           </Button>
         </div>
       </div>

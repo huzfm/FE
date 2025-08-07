@@ -3,8 +3,8 @@
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TerminalBox from "./TerminalBox";
-import FallingText from "../components/Tagline";
 import TypingText from "../components/Tagline";
+import Link from "next/link";
 
 export default function HeroSection() {
   return (
@@ -53,11 +53,11 @@ export default function HeroSection() {
         </div>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <Button
+          {/* <Button
             size="lg"
             className="text-[15px] px-8 py-3 bg-black font-mono text-white"
           >
-            Get Started
+            <Link href="/TerminalBox">Get Started</Link>
             <ArrowRight className="w-5 h-5 ml-2" />
           </Button>
           <Button
@@ -65,7 +65,7 @@ export default function HeroSection() {
             className="text-[15px] px-8 py-3 bg-white font-mono text-black"
           >
             View Components
-          </Button>
+          </Button> */}
         </div>
         <TerminalBox />
       </div>

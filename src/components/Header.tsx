@@ -38,7 +38,7 @@ export default function Header() {
             className="border-gray-300 text-white font-mono text-sm/loose flex items-center gap-2"
           >
             <Github className="w-4 h-4" />
-            GitHub
+            <Link href="https://github.com/huzfm/Devark">GitHub</Link>
           </Button>
         </nav>
         {/* Mobile Hamburger */}
