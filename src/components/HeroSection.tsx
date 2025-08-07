@@ -1,10 +1,7 @@
 // components/HeroSection.tsx
 
-import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import TerminalBox from "./TerminalBox";
 import TypingText from "../components/Tagline";
-import Link from "next/link";
 
 export default function HeroSection() {
   return (

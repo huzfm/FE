@@ -11,7 +11,7 @@ export default function CTASection() {
         <h2 className="text-4xl md:text-5xl font-bold mb-6">Contributions?</h2>
         <p className="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
           Whether you're fixing bugs, adding features, or improving docs — every
-          contribution counts. Let’s build something great together!
+          contribution counts. Lets build something great together!
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
