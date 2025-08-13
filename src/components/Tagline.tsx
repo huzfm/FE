@@ -1,23 +1,29 @@
-// components/TypingText.tsx
 "use client";
 
-import { Typewriter } from "react-simple-typewriter";
+import { useState, useEffect } from "react";
 
 export default function TypingText() {
+  const [displayText, setDisplayText] = useState("");
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const fullText = "The fastest way to build your backend";
+
+  useEffect(() => {
+    if (currentIndex < fullText.length) {
+      const timeout = setTimeout(() => {
+        setDisplayText(fullText.slice(0, currentIndex + 1));
+        setCurrentIndex(currentIndex + 1);
+      }, 100);
+
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, fullText]);
+
   return (
-    <div className="flex justify-center pb-10">
-      <div className="rounded-2xl px-6  bg-white   shadow-md">
-        <h1 className="text-lg sm:text-3xl lg:text-xl font-bold text-black text-center font-mono">
-          <Typewriter
-            words={["Shadcn but for backend"]}
-            loop={true}
-            cursor
-            typeSpeed={70}
-            deleteSpeed={30}
-            delaySpeed={1500}
-          />
-        </h1>
-      </div>
+    <div className="mb-8">
+      <p className="text-lg md:text-xl text-gray-600 font-medium font-mono">
+        {displayText}
+        <span className="animate-pulse text-amber-600">|</span>
+      </p>
     </div>
   );
 }

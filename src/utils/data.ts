@@ -1,34 +1,35 @@
 export const components = [
   {
-    id: 1,
     title: "Google OAuth Provider",
     description: "Complete OAuth implementation with Google",
-    command: " devark add oauth",
+    command: "npx devark add google-oauth",
   },
   {
-    id: 8,
     title: "Email based OTP",
     description: "Email Otps with Resend",
-    command: "devark add otp",
+    command: "npx devark add otp",
   },
   {
-    id: 2,
+    title: "Github OAuth Provider",
+    description: "Complete OAuth implementation with Github",
+    command: "npx devark add github-oauth",
+  },
+  {
     title: "JWT Manager",
     description: "Token generation, validation, and refresh logic",
-    command: "devark add jwt",
+    command: "npx devark add jwt",
   },
-
   {
-    id: 4,
     title: "Redis Cache",
     description: "Redis integration for caching and sessions",
-    command: "devark add redis",
+    command: "npx devark add redis",
   },
-
   {
-    id: 7,
     title: "File Upload",
     description: "S3, Cloudinary, and local file upload handlers",
-    command: "devark add upload",
+    command: "npx devark add upload",
   },
-];
+].map((component, index) => ({
+  id: index + 1,
+  ...component,
+}));
