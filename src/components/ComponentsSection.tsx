@@ -32,9 +32,12 @@ export default function ComponentsSection() {
           </p>
         </div>
 
-        <Tabs defaultValue="all" className="max-w-6xl mx-auto ">
-          <TabsContent value="all" className="mt-8">
-            <div className="grid md:grid-cols-2 gap-8">
+        <Tabs
+          defaultValue="all"
+          className="w-full px-4 sm:px-6 md:px-8 max-w-7xl mx-auto"
+        >
+          <TabsContent value="all" className="mt-8 bg-transparent border-0">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {components.map((component, index) => (
                 <div
                   key={component.id}

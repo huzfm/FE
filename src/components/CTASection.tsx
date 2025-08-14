@@ -40,10 +40,6 @@ export default function CTASection() {
             </Link>
           </Button>
         </div>
-
-        <div className="absolute top-10 left-1/4 w-2 h-2 bg-amber-400 rounded-full animate-pulse"></div>
-        <div className="absolute bottom-10 right-1/4 w-3 h-3 bg-orange-400 rounded-full animate-bounce"></div>
-        <div className="absolute top-1/3 right-10 w-1 h-1 bg-amber-500 rounded-full animate-ping"></div>
       </div>
     </section>
   );
