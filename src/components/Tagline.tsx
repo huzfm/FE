@@ -20,7 +20,7 @@ export default function TypingText() {
 
   return (
     <div className="mb-8">
-      <p className="text-lg md:text-xl text-gray-600 font-medium font-mono">
+      <p className="text-lg md:text-xl sm:text-md text-white  font-semibold font-mono">
         {displayText}
         <span className="animate-pulse text-amber-600">|</span>
       </p>

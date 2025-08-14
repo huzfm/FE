@@ -35,9 +35,9 @@ export default function ComponentCard({
 
   return (
     <div
-      className={`group relative rounded-xl p-3 sm:p-4 transition-all duration-500 ${
+      className={`group relative rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 transition-all duration-500 ${
         mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-      } hover:scale-[1.02] hover:-translate-y-1`}
+      } hover:scale-[1.02] hover:-translate-y-1 w-full`}
       style={{
         background: "rgba(255, 255, 255, 0.95)",
         backdropFilter: "blur(12px)",
@@ -49,18 +49,18 @@ export default function ComponentCard({
 
       <div className="relative z-10">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-3">
-          <h3 className="text-base sm:text-lg font-semibold text-gray-800 group-hover:text-amber-700 transition-colors duration-300 leading-tight">
+          <h3 className="text-base sm:text-lg md:text-xl font-semibold text-gray-800 group-hover:text-amber-700 transition-colors duration-300 leading-tight">
             {title}
           </h3>
 
           {isComingSoon && (
-            <span className="px-2 py-1 bg-amber-100 text-amber-800 text-xs font-medium rounded-full border border-amber-200 self-start sm:self-auto">
+            <span className="px-2 py-1 bg-amber-100 text-amber-800 text-xs md:text-sm font-medium rounded-full border border-amber-200 self-start sm:self-auto">
               Coming Soon
             </span>
           )}
         </div>
 
-        <p className="mb-3 sm:mb-4 text-sm text-gray-600 leading-relaxed">
+        <p className="mb-3 sm:mb-4 text-sm md:text-base text-gray-600 leading-relaxed">
           {description}
         </p>
 
@@ -72,12 +72,14 @@ export default function ComponentCard({
               <span className="h-2 w-2 rounded-full bg-yellow-400" />
               <span className="h-2 w-2 rounded-full bg-green-400" />
             </div>
-            <span className="text-xs text-gray-400 font-mono">terminal</span>
+            <span className="text-xs text-gray-400 font-mono hidden sm:inline">
+              terminal
+            </span>
           </div>
 
           <div className="flex items-center bg-black min-h-[2.5rem]">
-            <div className="flex-1">
-              <pre className="text-green-400 font-mono text-sm font-semibold px-3 py-2 break-all">
+            <div className="flex-1 min-w-0">
+              <pre className="text-green-400 font-mono text-sm sm:text-base font-semibold px-3 py-2 truncate">
                 <span className="text-gray-400">$</span>{" "}
                 {isComingSoon ? `npx devark add ${packageName}` : command}
               </pre>
@@ -97,19 +99,9 @@ export default function ComponentCard({
                 {isComingSoon ? (
                   <span className="text-xs font-mono text-amber-400">Soon</span>
                 ) : copied ? (
-                  <>
-                    <Check size={12} className="text-green-400" />
-                    <span className="text-xs font-mono text-green-400 hidden sm:inline">
-                      Copied!
-                    </span>
-                  </>
+                  <Check size={12} className="text-green-400" />
                 ) : (
-                  <>
-                    <ClipboardCopy size={12} className="text-gray-300" />
-                    <span className="text-xs font-mono text-gray-300 hidden sm:inline">
-                      Copy
-                    </span>
-                  </>
+                  <ClipboardCopy size={12} className="text-gray-300" />
                 )}
               </button>
             </div>

@@ -1,4 +1,4 @@
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Mail } from "lucide-react";
 import Link from "next/link";
 
 // Custom X logo component
@@ -37,6 +37,13 @@ export default function Footer() {
               className="p-2 text-amber-300 hover:text-blue-400 hover:bg-amber-800/50 rounded-lg transition-all duration-200"
             >
               <XIcon className="w-5 h-5" />
+            </Link>
+            <Link
+              href="https://x.com/huzfm"
+              target="_blank"
+              className="p-2 text-amber-300 hover:text- hover:bg-amber-800/50 rounded-lg transition-all duration-200"
+            >
+              <Mail className="w-5 h-5" />
             </Link>
           </div>
 

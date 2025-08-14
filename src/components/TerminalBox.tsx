@@ -31,11 +31,12 @@ export default function TerminalBox() {
   return (
     <div className="relative max-w-4xl mx-auto">
       <div className="text-center mb-8">
-        <h2 className="text-4xl md:text-5xl font-bold text-amber-600 mb-2 ">
+        <h2 className="text-4xl md:text-5xl font-bold text-amber-600 mb-2">
           Installation
         </h2>
       </div>
-      <div className="flex items-center justify-between mb-4">
+
+      <div className="flex items-center mb-4">
         <div className="flex gap-1">
           {(["npm", "pnpm", "yarn"] as const).map((pm) => (
             <button
@@ -43,27 +44,14 @@ export default function TerminalBox() {
               onClick={() => setPackageManager(pm)}
               className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-200 ${
                 packageManager === pm
-                  ? "bg-amber-600 text-white shadow-lg border-1 border-black/10"
-                  : "bg-white/10 text-black hover:bg-white/20 backdrop-blur-sm"
+                  ? "bg-amber-800 text-white shadow-lg font-mono font-semibold"
+                  : "bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm font-mono font-semibold"
               }`}
             >
               {pm}
             </button>
           ))}
         </div>
-
-        <button
-          onClick={copyToClipboard}
-          className="flex items-center gap-2 px-4 py-2 text-sm text-amber-200 hover:text-white transition-all duration-200 rounded-lg hover:bg-white/10 backdrop-blur-sm"
-          title="Copy installation command"
-        >
-          {copied ? (
-            <Check className="w-4 h-4 text-green-400" />
-          ) : (
-            <Copy className="w-4 h-4" />
-          )}
-          {copied ? "Copied!" : "Copy"}
-        </button>
       </div>
 
       <div className="bg-gradient-to-br from-gray-900 to-black rounded-2xl shadow-2xl border border-amber-700/20 overflow-hidden backdrop-blur-sm">
@@ -81,16 +69,25 @@ export default function TerminalBox() {
 
         <div className="p-8 font-mono text-sm">
           <div className="text-amber-400 mb-4">
-            <span className="text-amber-600 font-mono font-medium">
-              huzfm@devark:~$
-            </span>
+            <span className="text-amber-600">huzfm@devark:~$</span>
           </div>
 
-          <div className="bg-gray-800/50 rounded-lg p-4 border border-amber-700/20">
+          <div className="bg-gray-800/50 rounded-lg p-4 border border-amber-700/20 flex items-center justify-between">
             <div className="text-white text-base">
               <span className="text-amber-500">$</span>{" "}
               {getCommand(packageManager)}
             </div>
+            <button
+              onClick={copyToClipboard}
+              className="flex items-center gap-2 px-3 py-1.5 text-sm text-amber-200 hover:text-white transition-all duration-200 rounded-lg hover:bg-white/10 backdrop-blur-sm ml-4"
+              title="Copy installation command"
+            >
+              {copied ? (
+                <Check className="w-4 h-4 text-green-400" />
+              ) : (
+                <Copy className="w-4 h-4" />
+              )}
+            </button>
           </div>
 
           <div className="mt-6 space-y-2 text-amber-200/80">
