@@ -7,7 +7,7 @@ export const components = [
   {
     title: "Email based OTP",
     description: "Email Otps with Resend",
-    command: "npx devark add otp",
+    command: "npx devark add resend-otp",
   },
   {
     title: "Github OAuth Provider",
@@ -16,7 +16,7 @@ export const components = [
   },
   {
     title: "JWT Manager",
-    description: "Token generation, validation, and refresh logic",
+    description: "Token generation and validation",
     command: "npx devark add jwt",
   },
   {
